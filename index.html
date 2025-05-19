@@ -1,151 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Choco Peanut</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <h1>Choco Peanut</h1>
-    <nav>
-      <ul class="menu">
-        <li onclick="mostrarSecao('inicio')">Início</li>
-        <li onclick="mostrarSecao('produto')">Produto</li>
-        <li onclick="mostrarSecao('encomendas')">Encomendas</li>
-        <li onclick="mostrarSecao('quem-somos')">Quem Somos</li>
-        <li onclick="mostrarSecao('feedback')">Feedback</li>
-      </ul>
-      <div class="icones-sociais-grandes">
-        <a href="https://instagram.com" target="_blank" title="Instagram">
-          <i class="fab fa-instagram" style="color: #E4405F; font-size: 2rem;"></i>
-        </a>
-        <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp">
-          <i class="fab fa-whatsapp" style="color: #25D366; font-size: 2rem;"></i>
-        </a>
-      </div>
-    </nav>
-  </header>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
-  <main>
-    <!-- Seção Início -->
-    <section id="inicio" class="secao visivel">
-      <div class="logo-inicio">
-        <img src="imagens/logo.png" alt="Logo Choco Peanut" />
-      </div>
-      <h2>Bem-vindo à Choco Peanut!</h2>
-      <p>Descubra a nossa paixão por brownies artesanais de amendoim.</p>
-      <h3>Encontre-nos em:</h3>
-      <div class="mapa">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.1173559780655!2d-50.44008952491983!3d-22.649412679437084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94953bdbb97c3ac5%3A0xd61f79976838c175!2sUnesp%20-%20Faculdade%20de%20Ci%C3%AAncias%20e%20Letras%20(FCLAs)!5e0!3m2!1spt-BR!2sbr!4v1746135188545!5m2!1spt-BR!2sbr" 
-          width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </section>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/11.7.3/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/11.7.3/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/11.7.3/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    <!-- Seção Produto -->
-    <section id="produto" class="secao">
-      <h2>Nosso Produto</h2>
-      <div class="produto-destaque-coluna">
-        <!-- Carrossel funcional com imagens grandes -->
-        <div class="carrossel" id="carrossel-produto">
-          <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
-          <img class="imagem-carrossel" src="imagens/img1.png.jpeg" alt="Brownie Clássico" style="display:block;">
-          <img class="imagem-carrossel" src="imagens/img2.png.jpeg" alt="Brownie com Amendoim" style="display:none;">
-          <img class="imagem-carrossel" src="imagens/img3.img.jpeg" alt="Brownie Gourmet" style="display:none;">
-          <button class="next" onclick="mudarSlide(1)">&#10095;</button>
-        </div>
-        <!-- Descrição do Produto embaixo -->
-        <div class="descricao-produto-coluna">
-          <h3>Brownie Recheado com Amendoim</h3>
-          <p>
-            Experimente o nosso delicioso <strong>Brownie Recheado com Amendoim</strong>, feito com ingredientes selecionados e um toque artesanal.<br>
-            Uma combinação perfeita de chocolate e amendoim que vai encantar o seu paladar!
-          </p>
-          <p><strong>Preço:</strong> R$ 15,00</p>
-          <button class="btn-encomendar">Encomendar Agora</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção Encomendas -->
-    <section id="encomendas" class="secao">
-      <h2>Faça sua Encomenda</h2>
-      <form action="enviar-encomenda.php" method="POST">
-        <input type="text" name="nome" placeholder="Seu nome" required />
-        <input type="email" name="email" placeholder="Seu email" required />
-        <textarea name="detalhes" placeholder="Detalhes da encomenda" required></textarea>
-        <button type="submit">Enviar Encomenda</button>
-      </form>
-    </section>
-
-    <!-- Seção Quem Somos -->
-    <section id="quem-somos" class="secao">
-      <h2>Quem Somos</h2>
-      <p>
-        A <strong>Choco Peanut</strong> nasceu em 2025, em Assis/SP, da união de cinco amigos da FATEC apaixonados por gastronomia e inovação.
-        Inspirados pelos sabores afetivos do chocolate e do amendoim, criamos uma marca que entrega mais do que sobremesas — proporcionamos experiências.
-      </p>
-      <p>
-        Nosso ateliê está localizado nas proximidades do <strong>Parque Buracão</strong>, um dos locais mais bonitos e tranquilos da cidade,
-        onde a natureza inspira a qualidade artesanal dos nossos brownies.
-      </p>
-      <div class="foto-grupo">
-        <img src="imagens/imggrupo.png.png" alt="Foto do grupo fundador da Choco Peanut">
-      </div>
-      <h3>Missão</h3>
-      <p>
-        Criar doces que, com a união certa entre chocolate e amendoim, remetam a comidas típicas da região, encantando e nutrindo, visando a tradicionalidade dos ingredientes principais que são tão queridos regionalmente, além de utilizar ingredientes frescos e de alta qualidade, para proporcionar momentos de prazer e satisfação para nossos clientes em cada pedaço.
-      </p>
-      <h3>Visão</h3>
-      <p>
-        Ser referência no setor de sobremesas artesanais, conquistando a preferência dos consumidores que buscam um equilíbrio entre sabor, qualidade e inovação.
-      </p>
-      <h3>Valores</h3>
-      <ul>
-        <li><strong>Qualidade a cada mordida:</strong> Ingredientes de excelência e cuidado em todas as etapas da produção.</li>
-        <li><strong>Satisfação do cliente:</strong> Mais do que agradar, buscamos encantar com cada experiência.</li>
-        <li><strong>Feito com carinho:</strong> Processo 100% artesanal, com foco em proporcionar momentos inesquecíveis.</li>
-        <li><strong>Ética e respeito:</strong> Nosso foco é você. Atuamos com responsabilidade e compromisso com o cliente.</li>
-      </ul>
-    </section>
-
-    <!-- Seção Feedback -->
-    <section id="feedback" class="secao">
-      <h2>Deixe seu Feedback</h2>
-      <form action="enviar-feedback.php" method="POST">
-        <input type="text" name="nome" placeholder="Seu nome" required />
-        <input type="email" name="email" placeholder="Seu email" required />
-        <textarea name="mensagem" placeholder="Escreva seu feedback" required></textarea>
-        <button type="submit">Enviar Feedback</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <div class="rodape">
-      <p>&copy; 2025 Choco Peanut. Todos os direitos reservados.</p>
-      <p>Desenvolvido por alunos da FATEC.</p>
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
-  </footer>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-  <script src="script.js"></script>
-  <script>
-function mostrarSecao(id) {
-  // Esconde todas as seções
-  document.querySelectorAll('main .secao').forEach(secao => {
-    secao.classList.remove('visivel');
-  });
-  // Mostra a seção escolhida
-  const secaoAtiva = document.getElementById(id);
-  if (secaoAtiva) {
-    secaoAtiva.classList.add('visivel');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
-</script>
-</body>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
 </html>
