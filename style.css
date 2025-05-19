@@ -1,10 +1,15 @@
 /* Paleta de cores */
 :root {
-  --cor1: #D98B2B;  /* Laranja Amendoado */
-  --cor2: #BFA380;  /* Bege Doce */
-  --cor3: #D9CEC5;  /* Creme de Castanha */
-  --cor4: #A63F03;  /* Chocolate Escuro */
-  --cor5: #592816;  /* Cacau Profundo */
+  --cor1: #D98B2B;
+  /* Laranja Amendoado */
+  --cor2: #BFA380;
+  /* Bege Doce */
+  --cor3: #D9CEC5;
+  /* Creme de Castanha */
+  --cor4: #A63F03;
+  /* Chocolate Escuro */
+  --cor5: #592816;
+  /* Cacau Profundo */
 }
 
 /* Reset básico */
@@ -23,14 +28,18 @@ body {
 /* Estilo do cabeçalho */
 header {
   background-color: var(--cor1);
-  padding: 10px 20px; /* Reduz o espaçamento interno */
+  padding: 10px 20px;
+  /* Reduz o espaçamento interno */
   text-align: center;
 }
 
 header h1 {
-  font-family: 'Pacifico', cursive; /* Fonte estilosa */
-  font-size: 2.5rem; /* Tamanho ajustado */
-  color: var(--cor4); /* Cor do texto */
+  font-family: 'Pacifico', cursive;
+  /* Fonte estilosa */
+  font-size: 2.5rem;
+  /* Tamanho ajustado */
+  color: var(--cor4);
+  /* Cor do texto */
   text-align: center;
   margin: 10px 0;
 }
@@ -46,7 +55,8 @@ header nav ul.menu {
 
 header nav ul.menu li {
   cursor: pointer;
-  font-size: 1rem; /* Ajusta o tamanho da fonte do menu */
+  font-size: 1rem;
+  /* Ajusta o tamanho da fonte do menu */
   color: #fff;
 }
 
@@ -107,7 +117,8 @@ nav .menu {
 /* Estilo do carrossel */
 .carrossel {
   position: relative;
-  max-width: 240px; /* Reduz o tamanho do carrossel */
+  max-width: 240px;
+  /* Reduz o tamanho do carrossel */
   margin: 0 auto 20px;
   overflow: hidden;
   border-radius: 10px;
@@ -134,7 +145,7 @@ nav .menu {
   height: 120px;
   object-fit: cover;
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
   background: #fff;
 }
 
@@ -152,7 +163,7 @@ nav .menu {
   height: 420px;
   object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
   background: #fff;
   transition: box-shadow 0.2s;
   display: block;
@@ -177,20 +188,10 @@ nav .menu {
   background: #fd1d1d;
 }
 
-/* Responsivo */
-@media (max-width: 900px) {
-  .carrossel .imagem-carrossel {
-    width: 98vw;
-    max-width: 98vw;
-    height: 220px;
-  }
-  .carrossel {
-    max-width: 98vw;
-  }
-}
 
 /* Botões de navegação */
-button.prev, button.next {
+button.prev,
+button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -211,7 +212,8 @@ button.next {
   right: 5px;
 }
 
-button.prev:hover, button.next:hover {
+button.prev:hover,
+button.next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -231,7 +233,7 @@ button.prev:hover, button.next:hover {
   background: #fff7f0;
   padding: 24px 20px;
   border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .descricao-produto h3 {
@@ -278,7 +280,7 @@ button.prev:hover, button.next:hover {
   background: #fff7f0;
   padding: 28px 22px;
   border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   margin: 0 auto;
 }
 
@@ -313,7 +315,7 @@ button.prev:hover, button.next:hover {
   background-color: #fff8f2;
   color: var(--cor5);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 40px 20px;
   margin: 40px auto;
   max-width: 900px;
@@ -395,7 +397,7 @@ button.prev:hover, button.next:hover {
   width: 100%;
   max-width: 320px;
   border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
   margin-top: 12px;
 }
 
@@ -411,12 +413,18 @@ button.prev:hover, button.next:hover {
 #inicio {
   position: relative;
   padding: 50px 20px;
-  background: url('imagens/imgfundoinicio.png') no-repeat center center; /* Define a imagem como fundo */
-  background-size: cover; /* Faz a imagem cobrir toda a área */
-  background-attachment: fixed; /* Faz a imagem permanecer fixa ao rolar a página */
-  color: #fff; /* Garante que o texto fique visível */
-  text-align: center; /* Centraliza o conteúdo */
-  min-height: 400px; /* Define uma altura mínima */
+  background: url('imagens/imgfundoinicio.png') no-repeat center center;
+  /* Define a imagem como fundo */
+  background-size: cover;
+  /* Faz a imagem cobrir toda a área */
+  background-attachment: fixed;
+  /* Faz a imagem permanecer fixa ao rolar a página */
+  color: #fff;
+  /* Garante que o texto fique visível */
+  text-align: center;
+  /* Centraliza o conteúdo */
+  min-height: 400px;
+  /* Define uma altura mínima */
 }
 
 #inicio::before {
@@ -426,46 +434,62 @@ button.prev:hover, button.next:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Adiciona uma sobreposição escura */
-  z-index: 1; /* Coloca o overlay acima da imagem */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Adiciona uma sobreposição escura */
+  z-index: 1;
+  /* Coloca o overlay acima da imagem */
 }
 
-#inicio h2, #inicio p, #inicio .logo-inicio {
+#inicio h2,
+#inicio p,
+#inicio .logo-inicio {
   position: relative;
-  z-index: 2; /* Garante que o conteúdo fique acima do overlay */
+  z-index: 2;
+  /* Garante que o conteúdo fique acima do overlay */
 }
 
 #inicio h2 {
-  font-size: 2.5rem; /* Ajusta o tamanho do título */
+  font-size: 2.5rem;
+  /* Ajusta o tamanho do título */
   margin-bottom: 20px;
-  font-family: 'Pacifico', cursive; /* Fonte estilosa */
+  font-family: 'Pacifico', cursive;
+  /* Fonte estilosa */
 }
 
 #inicio p {
-  font-size: 1.2rem; /* Ajusta o tamanho do texto */
+  font-size: 1.2rem;
+  /* Ajusta o tamanho do texto */
   margin-bottom: 30px;
 }
 
 .logo-inicio img {
-  width: 150px; /* Ajuste o tamanho da logo */
+  width: 150px;
+  /* Ajuste o tamanho da logo */
   height: auto;
   display: block;
   margin: 0 auto;
-  border-radius: 0; /* Remova bordas arredondadas, se não forem necessárias */
-  box-shadow: none; /* Remova sombras, se não forem necessárias */
+  border-radius: 0;
+  /* Remova bordas arredondadas, se não forem necessárias */
+  box-shadow: none;
+  /* Remova sombras, se não forem necessárias */
 }
 
 /* Estilo do rodapé */
 footer {
-  background-color: var(--cor1); /* Cor do cabeçalho */
-  color: #fff; /* Texto branco */
-  padding: 20px 0; /* Espaçamento interno */
-  text-align: center; /* Centralizar o texto */
+  background-color: var(--cor1);
+  /* Cor do cabeçalho */
+  color: #fff;
+  /* Texto branco */
+  padding: 20px 0;
+  /* Espaçamento interno */
+  text-align: center;
+  /* Centralizar o texto */
 }
 
 footer .rodape p {
   margin: 5px 0;
-  font-size: 0.9rem; /* Ajusta o tamanho do texto no rodapé */
+  font-size: 0.9rem;
+  /* Ajusta o tamanho do texto no rodapé */
   color: #fff;
 }
 
@@ -489,11 +513,13 @@ footer .social li a {
   font-weight: bold;
   display: flex;
   align-items: center;
-  gap: 8px; /* Espaço entre o ícone e o texto */
+  gap: 8px;
+  /* Espaço entre o ícone e o texto */
 }
 
 footer .social li a i {
-  font-size: 1.2rem; /* Tamanho dos ícones */
+  font-size: 1.2rem;
+  /* Tamanho dos ícones */
 }
 
 footer .social li a:hover {
@@ -514,11 +540,13 @@ footer .social li a:hover {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
-  max-width: 400px; /* Define uma largura máxima para centralizar */
+  max-width: 400px;
+  /* Define uma largura máxima para centralizar */
 }
 
 .imagem-produto {
-  width: 200px; /* Reduz o tamanho da imagem */
+  width: 200px;
+  /* Reduz o tamanho da imagem */
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -564,6 +592,7 @@ nav {
 /* Menu em linha */
 .menu {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   list-style: none;
   padding: 0;
@@ -578,7 +607,8 @@ nav {
 }
 
 .icones-sociais-grandes a i {
-  font-size: 2.6rem !important; /* aumenta o tamanho dos ícones */
+  font-size: 2.6rem !important;
+  /* aumenta o tamanho dos ícones */
   transition: transform 0.2s;
 }
 
@@ -598,4 +628,25 @@ nav {
 .quem-somos-texto {
   max-width: 540px;
   min-width: 260px;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .carrossel .imagem-carrossel {
+    width: 98vw;
+    max-width: 98vw;
+    height: 220px;
+  }
+
+  .carrossel {
+    max-width: 98vw;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .menu-principal{
+    flex-direction: column;
+    align-items: center;
+  }
 }
