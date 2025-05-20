@@ -645,8 +645,13 @@ nav {
 
 /* Responsivo */
 @media (max-width: 768px) {
-  .menu-principal{
+  .menu-principal {
     flex-direction: column;
     align-items: center;
   }
+
+  .carrossel .imagem-carrossel {
+    width: 80vw;
+  }
+
 }
