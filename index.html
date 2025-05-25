@@ -196,7 +196,7 @@ function reiniciarCarrossel() {
 // Inicialização do carrossel
 if (slides.length) {
   mostrarSlide(0);
-  carrosselTimer = setInterval(proximoSlideAuto, 4000); // 4 segundos
+  carrosselTimer = setInterval(proximoSlideAuto, 2000); // 2 segundos
   if (prevBtn && nextBtn) {
     prevBtn.onclick = () => {
       mudarSlide(-1);
@@ -208,13 +208,16 @@ if (slides.length) {
 }
 
 // Ao clicar em "Encomendar Agora", vai para a seção de encomendas
-document.getElementById('btn-encomendar-produto').onclick = function() {
-  mostrarSecao('encomendas');
-  setTimeout(() => {
-    const form = document.querySelector('#encomendas form');
-    if (form) form.scrollIntoView({ behavior: 'smooth' });
-  }, 200);
-};
+const btnEncomendar = document.getElementById('btn-encomendar-produto');
+if (btnEncomendar) {
+  btnEncomendar.onclick = function() {
+    mostrarSecao('encomendas');
+    setTimeout(() => {
+      const form = document.querySelector('#encomendas form');
+      if (form) form.scrollIntoView({ behavior: 'smooth' });
+    }, 200);
+  };
+}
 
 // WhatsApp para formulário de encomenda
 const formEncomenda = document.querySelector('#encomendas form');
@@ -224,7 +227,7 @@ if (formEncomenda) {
     const nome = document.getElementById('nome-encomenda').value;
     const telefone = document.getElementById('telefone-encomenda').value;
     const detalhes = document.getElementById('detalhes-encomenda').value;
-    const numero = '551234567890'; // Coloque o número do WhatsApp com DDI e DDD
+    const numero = '5518997054769'; // Coloque o número do WhatsApp com DDI e DDD
     const mensagem = encodeURIComponent(
       `Olá! Gostaria de fazer uma encomenda:\nNome: ${nome}\nTelefone: ${telefone}\nPedido: ${detalhes}`
     );
