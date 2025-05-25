@@ -56,27 +56,50 @@ function mudarSlide(direcao) {
   slides.style.transform = `translateX(-${slideIndex * 100}%)`;
 }
 
-// Carrossel automático na seção produto (3 segundos para a direita)
-let slideAtual = 0;
-const slides = document.querySelectorAll('#carrossel-produto .imagem-carrossel');
+// Carrossel automático e manual na seção produto (3 segundos para a direita)
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('#carrossel-produto .imagem-carrossel');
+  const prevBtn = document.querySelector('#carrossel-produto .prev');
+  const nextBtn = document.querySelector('#carrossel-produto .next');
+  let slideAtual = 0;
+  let timer = null;
 
-function mostrarSlide(n) {
-  if (!slides.length) return;
-  slideAtual = (n + slides.length) % slides.length;
-  slides.forEach((img, i) => {
-    img.style.display = i === slideAtual ? 'block' : 'none';
-  });
-}
+  function mostrarSlide(n) {
+    if (!slides.length) return;
+    slideAtual = (n + slides.length) % slides.length;
+    slides.forEach((img, i) => {
+      img.style.display = i === slideAtual ? 'block' : 'none';
+    });
+  }
 
-// Inicializa o carrossel e faz ele rodar automaticamente a cada 3 segundos
-if (slides.length) {
-  mostrarSlide(0);
-  setInterval(() => {
+  function proximoSlide() {
     mostrarSlide(slideAtual + 1);
-  }, 3000);
-}
+  }
 
-// Adicionado antes do </body>
-document.addEventListener('DOMContentLoaded', () => {
-  mostrarSlide(slideIndex);
+  function anteriorSlide() {
+    mostrarSlide(slideAtual - 1);
+  }
+
+  function reiniciarTimer() {
+    clearInterval(timer);
+    timer = setInterval(proximoSlide, 3000);
+  }
+
+  if (slides.length) {
+    mostrarSlide(0);
+    timer = setInterval(proximoSlide, 3000);
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        anteriorSlide();
+        reiniciarTimer();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        proximoSlide();
+        reiniciarTimer();
+      });
+    }
+  }
 });
