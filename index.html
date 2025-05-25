@@ -91,7 +91,7 @@
           <label for="detalhes-encomenda">Observação do Pedido:</label>
           <textarea id="detalhes-encomenda" name="detalhes" placeholder="Detalhes ou observações do pedido" required></textarea>
         </div>
-        <button type="submit" class="btn-encomendar">Enviar Encomenda</button>
+        <button type="button" class="btn-encomendar" id="btn-enviar-whatsapp">Enviar Encomenda</button>
       </form>
     </section>
 
@@ -228,7 +228,22 @@ if (formEncomenda) {
     const mensagem = encodeURIComponent(
       `Olá! Gostaria de fazer uma encomenda:\nNome: ${nome}\nTelefone: ${telefone}\nPedido: ${detalhes}`
     );
-    window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+    window.open(`https://wa.me/5518997054769${numero}?text=${mensagem}`, '_blank');
+  };
+}
+
+// Botão "Enviar Encomenda" envia para o WhatsApp
+const btnEnviarWhatsapp = document.getElementById('btn-enviar-whatsapp');
+if (btnEnviarWhatsapp) {
+  btnEnviarWhatsapp.onclick = function() {
+    const nome = document.getElementById('nome-encomenda').value;
+    const telefone = document.getElementById('telefone-encomenda').value;
+    const detalhes = document.getElementById('detalhes-encomenda').value;
+    const numero = '551234567890'; // Coloque o número do WhatsApp com DDI e DDD
+    const mensagem = encodeURIComponent(
+      `Olá! Gostaria de fazer uma encomenda:\nNome: ${nome}\nTelefone: ${telefone}\nPedido: ${detalhes}`
+    );
+    window.open(`https://wa.me/5518997054769${numero}?text=${mensagem}`, '_blank');
   };
 }
 </script>
