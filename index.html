@@ -10,7 +10,7 @@
 </head>
 <body>
   <header>
-    <h1>Choco Peanut</h1>
+    <h1>ChocoPeanut</h1>
     <nav class="menu-principal">
       <ul class="menu">
         <li onclick="mostrarSecao('inicio')">Início</li>
@@ -20,11 +20,9 @@
         <li onclick="mostrarSecao('feedback')">Feedback</li>
       </ul>
       <div class="icones-sociais-grandes">
-        <a href="https://instagram.com" target="_blank" title="Instagram">
         <a href="https://www.instagram.com/chocopeanut.oficial?igsh=MW83NnZuZWN5YjNnaQ==" target="_blank" title="Instagram">
           <i class="fab fa-instagram" style="color: #E4405F; font-size: 2rem;"></i>
         </a>
-        <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp">
         <a href="https://wa.me/5518997054769" target="_blank" title="WhatsApp">
           <i class="fab fa-whatsapp" style="color: #25D366; font-size: 2rem;"></i>
         </a>
@@ -36,11 +34,11 @@
     <!-- Seção Início -->
     <section id="inicio" class="secao visivel">
       <div class="logo-inicio">
-        <img src="imagens/logo.png" alt="Logo Choco Peanut" />
+        <img src="imagens/logo.png" alt="Logo ChocoPeanut" />
       </div>
-      <h2>Bem-vindo à Choco Peanut!</h2>
+      <h2>Bem-vindo à ChocoPeanut!</h2>
       <p>Descubra a nossa paixão por brownies artesanais de amendoim.</p>
-      <h3>Encontre-nos em:</h3>
+      <h3>Nossa localização:</h3>
       <div class="mapa">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.1173559780655!2d-50.44008952491983!3d-22.649412679437084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94953bdbb97c3ac5%3A0xd61f79976838c175!2sUnesp%20-%20Faculdade%20de%20Ci%C3%AAncias%20e%20Letras%20(FCLAs)!5e0!3m2!1spt-BR!2sbr!4v1746135188545!5m2!1spt-BR!2sbr" 
           width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
@@ -67,8 +65,11 @@
             Experimente o nosso delicioso <strong>Brownie Recheado com Amendoim</strong>, feito com ingredientes selecionados e um toque artesanal.<br>
             Uma combinação perfeita de chocolate e amendoim que vai encantar o seu paladar!
           </p>
-          <p><strong>Preço:</strong> R$ 15,00</p>
-          <button class="btn-encomendar">Encomendar Agora</button>
+          <p>
+            <strong>Preço:</strong><br>
+            1 unidade: <strong>R$ 14,00</strong><br>
+            2 unidades ou mais: <strong>R$ 12,00</strong> cada
+          </p>
           <button class="btn-encomendar" id="btn-encomendar-produto" type="button">Encomendar Agora</button>
         </div>
       </div>
@@ -98,15 +99,13 @@
     <section id="quem-somos" class="secao">
       <h2>Quem Somos</h2>
       <p>
-        A <strong>Choco Peanut</strong> nasceu em 2025, em Assis/SP, da união de cinco amigos da FATEC apaixonados por gastronomia e inovação.
-        Inspirados pelos sabores afetivos do chocolate e do amendoim, criamos uma marca que entrega mais do que sobremesas — proporcionamos experiências.
-      </p>
-      <p>
-        Nosso ateliê está localizado nas proximidades do <strong>Parque Buracão</strong>, um dos locais mais bonitos e tranquilos da cidade,
-        onde a natureza inspira a qualidade artesanal dos nossos brownies.
+      A Chocopeanut nasceu da fusão perfeita entre dois sabores que se completam: o chocolate e o amendoim - e é daí que vem o nosso nome.
+Especializados em brownies, oferecemos uma experiência marcante a cada mordida, onde a intensidade do chocolate encontra a crocância do amendoim em equilíbrio perfeito.
+Nossa produção é totalmente artesanal, com ingredientes cuidadosamente selecionados e combinados para garantir um sabor inconfundível.
+Chocopeanut é sinônimo de qualidade, cuidado e paixão por doces bem feitos.
       </p>
       <div class="foto-grupo">
-        <img src="imagens/imggrupo.png.png" alt="Foto do grupo fundador da Choco Peanut">
+        <img src="imagens/imggrupo.png.png" alt="Foto do grupo fundador da ChocoPeanut">
       </div>
       <h3>Missão</h3>
       <p>
@@ -144,7 +143,7 @@
 
   <footer>
     <div class="rodape">
-      <p>&copy; 2025 Choco Peanut. Todos os direitos reservados.</p>
+      <p>&copy; 2025 ChocoPeanut. Todos os direitos reservados.</p>
       <p>Desenvolvido por alunos da FATEC.</p>
     </div>
   </footer>
@@ -161,6 +160,50 @@ function mostrarSecao(id) {
   if (secaoAtiva) {
     secaoAtiva.classList.add('visivel');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// Carrossel automático e manual
+let slideIndex = 0;
+const slides = document.querySelectorAll('#carrossel-produto .imagem-carrossel');
+const prevBtn = document.querySelector('#carrossel-produto .prev');
+const nextBtn = document.querySelector('#carrossel-produto .next');
+let carrosselTimer = null;
+
+function mostrarSlide(n) {
+  if (!slides.length) return;
+  slideIndex = (n + slides.length) % slides.length;
+  slides.forEach((img, i) => {
+    img.style.display = i === slideIndex ? 'block' : 'none';
+  });
+}
+
+function mudarSlide(n) {
+  mostrarSlide(slideIndex + n);
+  reiniciarCarrossel();
+}
+
+function proximoSlideAuto() {
+  mostrarSlide(slideIndex + 1);
+  // Não reinicia o timer aqui, apenas avança para o próximo slide
+}
+
+function reiniciarCarrossel() {
+  clearInterval(carrosselTimer);
+  carrosselTimer = setInterval(proximoSlideAuto, 2000); // 2 segundos
+}
+
+// Inicialização do carrossel
+if (slides.length) {
+  mostrarSlide(0);
+  carrosselTimer = setInterval(proximoSlideAuto, 4000); // 4 segundos
+  if (prevBtn && nextBtn) {
+    prevBtn.onclick = () => {
+      mudarSlide(-1);
+    };
+    nextBtn.onclick = () => {
+      mudarSlide(1);
+    };
   }
 }
 
