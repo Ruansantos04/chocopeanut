@@ -56,23 +56,25 @@ function mudarSlide(direcao) {
   slides.style.transform = `translateX(-${slideIndex * 100}%)`;
 }
 
-// Carrossel simples
+// Carrossel automático na seção produto (3 segundos para a direita)
 let slideAtual = 0;
 const slides = document.querySelectorAll('#carrossel-produto .imagem-carrossel');
 
 function mostrarSlide(n) {
+  if (!slides.length) return;
   slideAtual = (n + slides.length) % slides.length;
   slides.forEach((img, i) => {
     img.style.display = i === slideAtual ? 'block' : 'none';
   });
 }
 
-function mudarSlide(delta) {
-  mostrarSlide(slideAtual + delta);
+// Inicializa o carrossel e faz ele rodar automaticamente a cada 3 segundos
+if (slides.length) {
+  mostrarSlide(0);
+  setInterval(() => {
+    mostrarSlide(slideAtual + 1);
+  }, 3000);
 }
-
-// Inicializa o carrossel ao carregar a página
-if (slides.length) mostrarSlide(0);
 
 // Adicionado antes do </body>
 document.addEventListener('DOMContentLoaded', () => {
