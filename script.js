@@ -56,15 +56,11 @@ function mudarSlide(direcao) {
   slides.style.transform = `translateX(-${slideIndex * 100}%)`;
 }
 
-// Carrossel automático e manual para a seção produto
+// Carrossel simples
 let slideAtual = 0;
 const slides = document.querySelectorAll('#carrossel-produto .imagem-carrossel');
-const prevBtn = document.querySelector('#carrossel-produto .prev');
-const nextBtn = document.querySelector('#carrossel-produto .next');
-let carrosselTimer = null;
 
 function mostrarSlide(n) {
-  if (!slides.length) return;
   slideAtual = (n + slides.length) % slides.length;
   slides.forEach((img, i) => {
     img.style.display = i === slideAtual ? 'block' : 'none';
@@ -73,26 +69,12 @@ function mostrarSlide(n) {
 
 function mudarSlide(delta) {
   mostrarSlide(slideAtual + delta);
-  reiniciarCarrossel();
 }
 
-function proximoSlideAuto() {
-  mostrarSlide(slideAtual + 1);
-}
+// Inicializa o carrossel ao carregar a página
+if (slides.length) mostrarSlide(0);
 
-function reiniciarCarrossel() {
-  clearInterval(carrosselTimer);
-  carrosselTimer = setInterval(proximoSlideAuto, 2000); // 2 segundos
-}
-
-// Inicialização do carrossel ao carregar a página
+// Adicionado antes do </body>
 document.addEventListener('DOMContentLoaded', () => {
-  if (slides.length) {
-    mostrarSlide(0);
-    carrosselTimer = setInterval(proximoSlideAuto, 2000);
-    if (prevBtn && nextBtn) {
-      prevBtn.onclick = () => mudarSlide(-1);
-      nextBtn.onclick = () => mudarSlide(1);
-    }
-  }
+  mostrarSlide(slideIndex);
 });
