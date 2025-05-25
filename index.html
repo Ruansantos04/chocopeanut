@@ -187,6 +187,21 @@ if (formEncomenda) {
     window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
   };
 }
+
+// WhatsApp para formulário de feedback
+const formFeedback = document.querySelector('#feedback form');
+if (formFeedback) {
+  formFeedback.onsubmit = function(e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome-feedback').value;
+    const mensagemFeedback = document.getElementById('mensagem-feedback').value;
+    const numero = '5518997054769'; // Coloque o número do WhatsApp com DDI e DDD
+    const mensagem = encodeURIComponent(
+      `Novo feedback recebido:\nNome: ${nome}\nMensagem: ${mensagemFeedback}`
+    );
+    window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+  };
+}
 </script>
 </body>
 </html>
